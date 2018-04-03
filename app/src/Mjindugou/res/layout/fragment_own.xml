@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/pullview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@mipmap/wode_group">
+
+                    <RelativeLayout
+                        android:id="@+id/title_l"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <ImageView
+                            android:id="@+id/iv_set"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="13dp"
+                            android:src="@drawable/icon_wode_shezhi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="我的"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iv_news"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:padding="13dp"
+                            android:src="@drawable/icon_wode_xiaoxi" />
+                    </RelativeLayout>
+
+                    <com.lechuang.shengxinyoupin.view.defineView.XCRoundImageView
+                        android:id="@+id/iv_headImg"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_below="@+id/title_l"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/wode_touxiang" />
+
+                    <TextView
+                        android:id="@+id/user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/iv_headImg"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@+id/my_income_l"
+                        android:layout_toRightOf="@+id/iv_headImg"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/user_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/user_name"
+                        android:layout_below="@+id/user_name"
+                        android:maxLines="1"
+                        android:text="登录/注册"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:id="@+id/my_income_l"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/title_l"
+                        android:layout_gravity="bottom"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/iv_shuoming"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@mipmap/wode_wenhao"
+                            android:gravity="center"
+                            android:text="我的收益"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <com.lechuang.shengxinyoupin.view.defineView.NumberRollingView
+                            android:id="@+id/tv_my_income"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.00"
+                            android:textColor="#D1F94A"
+                            android:textSize="34sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#FF0000"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/qiandao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@mipmap/wode_qiandao"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:text="立即签到"
+                        android:textColor="#FFFFFF" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/ll_share_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawableLeft="@mipmap/wode_fengxiang"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:text="分享APP"
+                        android:textColor="@color/white" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/agency_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="17dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/wode_hehuoren" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="成为合伙人"
+                                android:textColor="#000000"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="享受合伙人特权"
+                                android:textSize="14dp" />
+
+                            <ImageView
+                                android:layout_width="6dp"
+                                android:layout_height="11dp"
+                                android:layout_marginLeft="5dp"
+                                android:src="@mipmap/wode_jiantou" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="温馨提示：申请成为合伙人，您可享受分享商品获得积分的权利以及邀请好友获得额外提成的权利。" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/agency_yes"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="17dp"
+                                android:layout_marginRight="5dp"
+                                android:src="@drawable/wode_hehuoren" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="合伙人中心"
+                                android:textColor="#000000"
+                                android:textSize="14dp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@color/rgb_eee" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tuiguang"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawableTop="@mipmap/wode_tuiguang"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="开始推广" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/rgb_eee" />
+
+                            <LinearLayout
+                                android:id="@+id/tuandui"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@mipmap/wode_tuandui"
+                                    android:text="我的团队" />
+
+                                <TextView
+                                    android:id="@+id/renshu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="人数" />
+                            </LinearLayout>
+
+                            <!--<ImageView-->
+                            <!--android:id="@+id/hehuoren"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="58dp"-->
+                            <!--android:layout_gravity="center_vertical"-->
+                            <!--android:layout_marginRight="5dp"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:background="@drawable/apply"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--</ImageView>-->
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/rgb_eee" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="17dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@mipmap/wode_changyonggongneng" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="常用功能"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/rgb_eee" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_myincom"
+                        style="@style/wode_item">
+
+                        <View
+                            android:id="@+id/head"
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_shouyi" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="我的收益" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/rgb_eee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_tixian"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_tixian" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="@string/tixian_title" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/rgb_eee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_chaojisou"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_chaojisou" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="超级搜" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/rgb_eee" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_renwu"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_renwu" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="任务中心" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/rgb_eee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_dingdan"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_dingdan" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="我的订单" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/rgb_eee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_gouwuche"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_gouwuche" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="购物车" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/rgb_eee" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_shaidan"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_shaidan" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="晒单" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/rgb_eee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_kefu"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_kefu" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="在线客服" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/rgb_eee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_help"
+                        style="@style/wode_item">
+
+                        <View
+                            style="@style/wode_item_icon"
+                            android:background="@mipmap/wode_help" />
+
+                        <TextView
+                            style="@style/wode_item_text"
+                            android:text="帮助中心" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+</LinearLayout>

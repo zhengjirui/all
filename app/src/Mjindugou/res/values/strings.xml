@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--提现标题-->
+    <string name="tixian_title">金币提现</string>
+    <string name="tixian_name">金币</string>
+    <string name="tixian_company">金</string>
+    <string name="tixian_ketixian">可提现金币</string>
+</resources>

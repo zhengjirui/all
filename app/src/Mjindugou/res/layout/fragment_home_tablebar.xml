@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/home_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/main"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/iv_task"
+            android:layout_width="46dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="9dp"
+            android:src="@mipmap/main_title"
+            />
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_solid_white1"
+            android:drawableLeft="@drawable/icon_sousuo"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="@string/search_show"
+            android:textColor="@color/rgb_b8b8b8"
+            android:textSize="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/qiandao"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/main_qiandao"
+            />
+
+    </LinearLayout>
+
+
+    <com.lechuang.shengxinyoupin.mine.view.XRecyclerView
+        android:id="@+id/rv_home_table"
+        android:layout_below="@id/home_title_bar"
+        android:layout_width="fill_parent"
+        android:background="@color/c_F4F4F4"
+        android:layout_height="fill_parent" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout_home_top"
+        android:layout_below="@id/home_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/main"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/main"
+        app:tabTextColor="@color/c_676767"
+        android:visibility="invisible"
+        />
+
+    <View
+        android:id="@+id/line_home_tab_top"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tablayout_home_top"
+        android:background="@color/rgb_eee"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/iv_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_top"
+        android:visibility="invisible"
+        />
+
+</RelativeLayout>

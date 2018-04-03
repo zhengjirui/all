@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.jude.rollviewpager.RollPagerView
+            android:id="@+id/rv_banner"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:scaleType="centerCrop"
+            app:rollviewpager_play_delay="3000" />
+
+        <com.lechuang.shengxinyoupin.view.defineView.MGridView
+            android:id="@+id/gv_kind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:horizontalSpacing="10dp"
+            android:listSelector="@color/transparent"
+            android:numColumns="5"
+            android:scrollbars="none"
+            android:verticalSpacing="12dp" />
+        <!--快播 done-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/c_F4F4F4"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:background="@drawable/bg_kuaibao_circle"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/main_kuaibao" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:text="抢"
+                    android:textColor="@color/main"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+                <com.lechuang.shengxinyoupin.view.defineView.AutoTextView
+                    android:id="@+id/tv_auto_text"
+                    style="@style/sp12BlackTextView"
+                    android:layout_marginLeft="3dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="每日上新，打牌显示特卖，优选新品任你挑" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--每日秒杀-->
+        <TextView
+            android:id="@+id/todayTitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@mipmap/main_remai"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:text="每日秒杀"
+            android:textColor="@color/main"
+            android:textSize="16sp" />
+        <!--每日秒杀-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/todayProduct"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="10dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/c_F4F4F4" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/baoyou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="9dp"
+            android:paddingTop="9dp">
+
+            <View
+                android:id="@+id/main_9"
+                android:layout_width="168dp"
+                android:layout_height="67dp"
+                android:background="@mipmap/main_9"
+                app:layout_constraintEnd_toStartOf="@+id/main_19"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/main_19"
+                android:layout_width="168dp"
+                android:layout_height="67dp"
+                android:background="@mipmap/main_19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/main_9" />
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/rgb_eee"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_program1"
+            app:layout_constraintStart_toEndOf="@+id/iv_program1"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--4个栏目 done-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/iv_program_l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/background_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#FF00FF"
+                android:visibility="invisible"
+                app:layout_constraintDimensionRatio="375:167"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_program1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/background_view"
+                app:layout_constraintDimensionRatio="128:167"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/line_v"
+                android:layout_width="1px"
+                android:layout_height="0dp"
+                android:background="@color/rgb_eee"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_program1"
+                app:layout_constraintStart_toEndOf="@+id/iv_program1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_program2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintDimensionRatio="247:84"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/line_v"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/line_h"
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:background="@color/rgb_eee"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/iv_program2"
+                app:layout_constraintTop_toBottomOf="@+id/iv_program2" />
+
+            <ImageView
+                android:id="@+id/iv_program3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintDimensionRatio="124:83"
+                app:layout_constraintStart_toStartOf="@+id/line_h"
+                app:layout_constraintTop_toBottomOf="@+id/line_h" />
+
+            <ImageView
+                android:id="@+id/iv_program4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/background_view"
+                app:layout_constraintEnd_toEndOf="@+id/background_view"
+                app:layout_constraintStart_toEndOf="@+id/iv_program3"
+                app:layout_constraintTop_toTopOf="@+id/iv_program3" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@color/c_F4F4F4" />
+        <!--边买边看-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/videoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@mipmap/main_remai"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="边买边看"
+                android:textColor="@color/main"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/check_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/c_5D5D5D"
+                android:drawableRight="@mipmap/main_jiantou"
+                android:text="查看更多" />
+
+        </RelativeLayout>
+        <!--边买边看-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/videoProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp" />
+
+        <View
+            android:id="@+id/iv_jump"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/rgb_eee" />
+        <!--底部图片-->
+        <ImageView
+            android:id="@+id/lastRollViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/main"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/main"
+        app:tabTextColor="@color/c_676767" />
+
+    <View
+        android:id="@+id/line_home_tab"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/rgb_eee" />
+
+</LinearLayout>
+
+
+
+

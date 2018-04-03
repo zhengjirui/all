@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="156dp">
+
+        <com.lechuang.shengxinyoupin.mine.view.XRecyclerView
+            android:id="@+id/rv_soufanli"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/iv_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_top"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/souquan_shuoming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="156dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@mipmap/zhaoquan_bz" />
+    </ScrollView>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/headd"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@mipmap/soufanli_bg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="14dp"
+            android:src="@drawable/icon_fanhui_w" />
+
+        <TextView
+            android:id="@+id/souquan"
+            android:layout_width="96dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/soufanli_switch_left"
+            android:gravity="center"
+            android:text="搜APP"
+            android:textColor="@color/soufanli_button_switch"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/souquanwang"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/souquanwang"
+            android:layout_width="96dp"
+            android:layout_height="35dp"
+            android:background="@drawable/soufanli_switch_right"
+            android:gravity="center"
+            android:text="搜全网"
+            android:textColor="@color/soufanli_button_switch"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/souquan"
+            app:layout_constraintTop_toTopOf="@+id/souquan" />
+
+        <TextView
+            android:id="@+id/et_content"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/sousuobg"
+            android:drawableLeft="@drawable/icon_sousuonew"
+            android:drawablePadding="10dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:hint="@string/search_show"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>

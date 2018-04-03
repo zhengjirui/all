@@ -1,0 +1,176 @@
+package com.lechuang.shengxinyoupin.view.activity.earn;
+
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.lechuang.shengxinyoupin.R;
+import com.lechuang.shengxinyoupin.model.LeCommon;
+import com.lechuang.shengxinyoupin.model.bean.GetBean;
+import com.lechuang.shengxinyoupin.presenter.ToastManager;
+import com.lechuang.shengxinyoupin.presenter.net.Netword;
+import com.lechuang.shengxinyoupin.presenter.net.ResultBack;
+import com.lechuang.shengxinyoupin.presenter.net.netApi.GetApi;
+import com.lechuang.shengxinyoupin.utils.Utils;
+import com.lechuang.shengxinyoupin.view.activity.get.GetInfoActivity;
+import com.lechuang.shengxinyoupin.view.activity.home.SearchActivity;
+import com.lechuang.shengxinyoupin.view.defineView.CustomTabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+/**
+ * 作者：li on 2017/9/21 17:46
+ * 邮箱：961567115@qq.com
+ * 修改备注:
+ */
+public class GetMoneyActivity extends AppCompatActivity {
+    @BindView(R.id.tablayout_get)
+    TabLayout tablayoutGet;
+    @BindView(R.id.vp_get)
+    ViewPager vpGet;
+    @BindView(R.id.ll_search)
+    LinearLayout etTopSearch;
+    @BindView(R.id.ll_noNet)
+    LinearLayout llNoNet; //没有网络
+    @BindView(R.id.iv_tryAgain)
+    ImageView tryAgain;
+    @BindView(R.id.ll_content)
+    LinearLayout llContent;
+    @BindView(R.id.iv_shuoming)
+    ImageView ivShuoming;
+    Unbinder unbinder;
+    //fragments集合
+    private List<Fragment> fragments;
+    //viewpage标题
+    private List<GetBean.TopTab> topTabList = new ArrayList<>();
+    private Context mContext = GetMoneyActivity.this;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.setContentView(R.layout.fragment_get);
+
+        unbinder = ButterKnife.bind(this);
+        etTopSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, SearchActivity.class));
+            }
+        });
+        ivShuoming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, GetInfoActivity.class));
+            }
+        });
+        getData();
+    }
+
+    private void getData() {
+
+        if (Utils.isNetworkAvailable(mContext)) {
+//            refreshScrollView.setVisibility(View.VISIBLE);
+            llContent.setVisibility(View.VISIBLE);
+            llNoNet.setVisibility(View.GONE);
+            Netword.getInstance().getApi(GetApi.class)
+                    .topTabList()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new ResultBack<GetBean>(mContext) {
+                        @Override
+                        public void successed(GetBean result) {
+                            if (result == null) return;
+                            GetBean.TopTab topTab = new GetBean.TopTab();
+                            topTab.rootId = -1;
+                            topTab.rootName = "精选";
+                            topTabList.add(topTab);
+                            List<GetBean.TopTab> tabList = result.tbclassTypeList;
+                            if (tabList != null) {
+                                topTabList.addAll(tabList);
+                            }
+                            CustomTabLayout.reflex(tablayoutGet);
+                            initFragment();
+                        }
+                    });
+        } else {
+            llNoNet.setVisibility(View.VISIBLE);
+            llContent.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * @author li
+     * 邮箱：961567115@qq.com
+     * @time 2017/9/22  12:22
+     * @describe 中间viewPager和fragment联动
+     */
+    private void initFragment() {
+        fragments = new ArrayList<>();
+        for (GetBean.TopTab tab : topTabList) {
+            fragments.add(setTitle(new GetBaseFragment(), tab.rootId, tab.rootName));
+        }
+        //设置适配器
+        CommonPagerAdapter mPaperAdapter = new CommonPagerAdapter(this.getSupportFragmentManager());
+        mPaperAdapter.addFragment(fragments, topTabList);
+//        vpGet.setOffscreenPageLimit(3);
+        vpGet.setAdapter(mPaperAdapter);
+        //设置tablout 滑动模式
+        tablayoutGet.setTabMode(TabLayout.MODE_SCROLLABLE);
+        //联系tabLayout和viwpager
+        tablayoutGet.setupWithViewPager(vpGet);
+    }
+
+    /**
+     * 设置头目
+     */
+    private Fragment setTitle(Fragment fragment, int rootId, String title) {
+        Bundle args = new Bundle();
+        args.putInt(LeCommon.KEY_ROOT_ID, rootId);
+        args.putString("title", title);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+    }
+
+    @OnClick({R.id.iv_tryAgain, R.id.iv_back})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_tryAgain:
+                if (Utils.isNetworkAvailable(mContext)) {
+                    getData();
+                } else {
+                    ToastManager.getInstance().showShortToast(getString(R.string.net_error));
+                }
+                break;
+            case R.id.iv_back:
+                finish();
+                break;
+        }
+
+    }
+
+}

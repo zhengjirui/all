@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/loading_square" />
+
+    <View
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@mipmap/video_play_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/img"
+        app:layout_constraintEnd_toEndOf="@+id/img"
+        app:layout_constraintStart_toStartOf="@+id/img"
+        app:layout_constraintTop_toTopOf="@+id/img" />
+
+    <TextView
+        android:id="@+id/nowNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white"
+        android:padding="5dp"
+        android:text="数量"
+        android:textColor="@color/c_5D5D5D"
+        android:textSize="6sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img"
+        app:layout_constraintEnd_toEndOf="@+id/img" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="商品标题"
+        android:textColor="@color/c_5D5D5D"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/img"
+        app:layout_constraintStart_toStartOf="@+id/img"
+        app:layout_constraintTop_toBottomOf="@+id/img" />
+
+    <TextView
+        android:id="@+id/price_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="券后价"
+        android:textColor="@color/rgb_acacac"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/price"
+        app:layout_constraintStart_toStartOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="299"
+        android:textColor="@color/main"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/price_l"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/couponMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:background="@color/main"
+        android:gravity="center"
+        android:minWidth="37dp"
+        android:text="299"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/price"
+        app:layout_constraintEnd_toEndOf="@+id/img" />
+
+</android.support.constraint.ConstraintLayout>

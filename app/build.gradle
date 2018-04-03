@@ -1,0 +1,415 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    //.jpg修改成了.png就会出现问题,加上下面代码
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
+                    && 'release'.equals(variant.buildType.name)) {
+                //as3.0之后，这里的一段需要修改成这样
+                output.outputFileName = "${variant.applicationId.substring(variant.applicationId.lastIndexOf(".") + 1)}_v${variant.versionName}_${buildTime()}.apk"
+            }
+        }
+    }
+
+    defaultConfig {
+        multiDexEnabled true
+        minSdkVersion 16
+        targetSdkVersion 24
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        flavorDimensions "plagiarism", "mould"
+//        manifestPlaceholders = [
+//                JPUSH_PKGNAME : applicationId,
+//                JPUSH_APPKEY : "5d13b8954bef39c985c0bfef", //JPush上注册的包名对应的appkey.
+//                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+//        ]
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    signingConfigs {
+        //省心优品签名
+        shengxinyoupin {
+            //签名地址
+            storeFile file("\\jks\\shengyouyoupin.jks")
+            //签名的密码
+            storePassword "123456"
+            //别名
+            keyAlias "key0"
+            //别名的密码
+            keyPassword "123456"
+        }
+        //券宝贝签名
+        quanbaobei {
+            //签名地址
+            storeFile file("\\jks\\quanbaobei.jks")
+            //签名的密码
+            storePassword "123456"
+            //别名
+            keyAlias "quanbaobei"
+            //别名的密码
+            keyPassword "123456"
+        }
+        //布丁优选
+        budingyouxuan {
+            //签名地址
+            storeFile file("\\jks\\buding.jks")
+            //签名的密码
+            storePassword "123456"
+            //别名
+            keyAlias "key0"
+            //别名的密码
+            keyPassword "123456"
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.shengxinyoupin
+//            signingConfig signingConfigs.quanbaobei
+//            signingConfig signingConfigs.budingyouxuan
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        //模板是省心优品
+        Mshengxinyoupin {
+            dimension 'mould'
+        }
+        //这个是空白的
+        blank {
+            dimension 'plagiarism'
+        }
+        //省心优品
+        shengxinyoupin {
+            applicationId "com.lechuang.shengxinyoupin"
+            versionCode 132
+            versionName "1.3.2"
+            def appName = "省心优品"
+            def appNamePinyin = "SHEGNXIN YOUPIN"
+            //服务器地址
+            def uri = "http://sxyp.1kg.fun/"
+            // 淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_113763135_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24753879"
+            def JPUSH_APPKEY = "d10df9611576db04ad0c82df"
+            def UMENG_APPKEY = "5a5858ddb27b0a1fe7000177"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //剁手达人
+        duoshoudaren {
+            applicationId "com.lechuang.duoshoudaren"
+            versionCode 111
+            versionName "1.1.1"
+            def appName = "剁手达人"
+            def appNamePinyin = "DUOSHOU DAREN"
+            //服务器地址
+            def uri = "http://dsdr.1kg.fun/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_82245748_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24794497"
+            def JPUSH_APPKEY = "bf21d57c3a6f7013533d6f1a"
+            def UMENG_APPKEY = "5ab522e4b27b0a1ef6000349"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //优菜书
+        youcaishu {
+            applicationId "com.ycs.youcaishu"
+            versionCode 111
+            versionName "1.1.1"
+            def appName = "优菜书"
+            def appNamePinyin = "YOUCAISHU"
+            //服务器地址
+            def uri = "http://ycs.0f0.fun/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_40519972_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24792734"
+            def JPUSH_APPKEY = "2819ef8ab92cf527c5604e98"
+            def UMENG_APPKEY = "5ab52263f43e480bd20002a1"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //云购优品
+        yungouyoupin {
+            applicationId "com.lechuang.yungouyoupin"
+            versionCode 111
+            versionName "1.1.1"
+            def appName = "云购优品"
+            def appNamePinyin = "YUNGOU YOUPIN"
+            //服务器地址
+            def uri = "http://ygyp.1kg.fun/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_111615164_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24795460"
+            def JPUSH_APPKEY = "9f061b57c3762d56cbf3c3f0"
+            def UMENG_APPKEY = "5ab521ca8f4a9d57180003af"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //宝贝卷卷
+        baobeijuanjuan {
+            applicationId "com.bbjj.baobeijuanjuan"
+            versionCode 111
+            versionName "1.1.1"
+            def appName = "宝贝卷卷"
+            def appNamePinyin = "BAOBEI JUANJUAN"
+            //服务器地址
+            def uri = "http://bbqq.1kg.fun/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_113823319_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24790272"
+            def JPUSH_APPKEY = "2d41cbbf4800204dd9664cd5"
+            def UMENG_APPKEY = "5ab52109f43e485207000531"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+
+        //券生活
+        quanshenghuo {
+            applicationId "com.qsh.quanshenghuo"
+            versionCode 100
+            versionName "1.0.0"
+            def appName = "券生活"
+            def appNamePinyin = "QUANSHENGHUO"
+            //服务器地址
+            def uri = "http://qsh.1kg.fun/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_130963234_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24797401"
+            def JPUSH_APPKEY = "fcd58037e35ff7499b24c41f"
+            def UMENG_APPKEY = "5a7bb0888f4a9d3ded000035"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //券宝贝
+        quanbaobei {
+            applicationId "com.lechuang.quanbaobei"
+            versionCode 141
+            versionName "1.4.1"
+            def appName = "券宝贝"
+            def appNamePinyin = "QUANBAOBEI"
+            //服务器地址
+            def uri = "http://quanbaobei.lechuangapp.com/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_111816104_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24676367"
+            def JPUSH_APPKEY = "1709339c7583a0e50aaf1cc1"
+            def UMENG_APPKEY = "5a5899e3b27b0a2542000125"
+            signingConfig signingConfigs.quanbaobei
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //  布丁优选
+        budingyouxuan {
+            applicationId "com.lechuang.buding"
+            versionCode 111
+            versionName "1.1.1"
+            def appName = "布丁优选"
+            def appNamePinyin = "BUDING YOUXUAN"
+            //服务器地址
+            def uri = "http://app.aigou666.com/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_97526831_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24711981"
+            def JPUSH_APPKEY = "673b1d7662c0648e6e060c8c"
+            def UMENG_APPKEY = "5ab52008f29d982384000025"
+            signingConfig signingConfigs.budingyouxuan
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //  扫品街
+        saopinjie {
+            applicationId "com.lechuang.saopinjie"
+            versionCode 111
+            versionName "1.1.1"
+            def appName = "扫品街"
+            def appNamePinyin = "SAOPIN JIE"
+            //服务器地址
+            def uri = "http://app.aigou666.com/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_118392106_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24788523"
+            def JPUSH_APPKEY = "afc4adbe6c6ed89c54eb1c3b"
+            def UMENG_APPKEY = "5ab0aea7b27b0a74320000e1"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //金嘟购的模板
+        Mjindugou {
+            dimension 'mould'
+        }
+        //金嘟购
+        jindugou {
+            applicationId "com.jdg.jindugou"
+            versionCode 100
+            versionName "1.0.0"
+            def appName = "金嘟购"
+            def appNamePinyin = "JINDUGOU"
+            //服务器地址
+            def uri = "http://jdg.1kg.fun/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_32278438_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24784055"
+            def JPUSH_APPKEY = "758d917e52529d3bbe902b9e"
+            def UMENG_APPKEY = "5a7d2becf43e482e88000212"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+        //赚钱快报
+        zhuanqiankuaibao {
+            applicationId "com.lechuang.zhuanqiankuaibao"
+            versionCode 100
+            versionName "1.0.0"
+            def appName = "赚钱快报"
+            def appNamePinyin = "ZHUANQIAN KUAIBAO"
+            //服务器地址
+            def uri = "http://www.posuiqiege.com/"
+            //淘宝pid(百川用户pid   非常重要  注意替换)
+            def ali_PID = "mm_123430815_0_0"
+            //appkey  (百川的appkey 用于客服功能  注意替换)
+            def ali_APP_KEY = "24805423"
+            def JPUSH_APPKEY = "89119b589a87ea362511cf34"
+            def UMENG_APPKEY = "5ab4afa88f4a9d64a50002a1"
+            signingConfig signingConfigs.shengxinyoupin
+            dimension 'plagiarism'
+            putParameter(it, applicationId, appName, appNamePinyin, uri, ali_PID, ali_APP_KEY, JPUSH_APPKEY, UMENG_APPKEY)
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+static def putParameter(
+        def it, def applicationId, def appName, def appNamePinyin, def uri, def ali_PID,
+        def ali_APP_KEY, def JPUSH_APPKEY, def UMENG_APPKEY) {
+    it.resValue "string", "app_name_res", appName
+    it.resValue "string", "app_name_pinyin_res", appNamePinyin
+    it.resValue "string", "app_agreement", "《" + appName + "用户协议》"
+    it.buildConfigField 'String', 'app_name', "\"${appName}\""
+    it.buildConfigField 'String', 'QUrl_url', "\"${uri}\""
+    it.buildConfigField 'String', 'ali_PID', "\"${ali_PID}\""
+    it.buildConfigField 'String', 'ali_APP_KEY', "\"${ali_APP_KEY}\""
+    it.manifestPlaceholders = [
+            JPUSH_PKGNAME: applicationId,
+            JPUSH_CHANNEL: "developer-default",
+            UMENG_CHANNEL: "Channel ID",
+            JPUSH_APPKEY : JPUSH_APPKEY,
+            UMENG_APPKEY : UMENG_APPKEY
+    ]
+}
+
+static def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+
+repositories {
+    maven { url "https://jitpack.io" }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+//    compile files('libs/alipaySdk-20170725.jar')
+    compile project(':PullToRefresh')
+    compile project(':OneKeyShare')
+    //compile project(':LightsPush')
+    compile 'com.android.support:appcompat-v7:26+'
+    compile 'com.android.support:support-v4:26+'
+    compile 'com.android.support:design:26+'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
+    compile 'com.alibaba:fastjson:1.2.9'
+    compile 'com.alibaba.alipay:alipaySingle:20160825@jar'
+    compile 'com.ali.auth.sdk:alibabauth_core:1.1.4@jar'
+    compile 'com.ali.auth.sdk:alibabauth_ui:1.1.4@aar'
+    compile 'com.ali.auth.sdk:alibabauth_ext:1.1.4@jar'
+    compile 'com.ali.auth.sdk:alibabauth_accountlink:1.1.4@jar'
+    compile 'com.taobao.android:securityguardaar3:5.1.81@aar'
+    compile 'com.taobao.android:securitybodyaar3:5.1.25@aar'
+    compile 'com.taobao.android:mtopsdk_allinone_open:1.2.2.4@jar'
+    compile 'com.taobao.android:alibc_applink:2.0.0.9@jar'
+    compile 'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'
+    compile 'com.alibaba.mtl:app-monitor-sdk:2.5.1.3_for_bc_proguard@jar'
+    compile 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.11@aar'
+    compile 'com.android.support:cardview-v7:26+'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    compile 'io.reactivex:rxjava:1.1.7'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.github.bumptech.glide:okhttp-integration:1.4.0'
+    compile 'pub.devrel:easypermissions:0.2.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.jude:rollviewpager:1.4.5'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.24'
+    compile 'com.github.anzaizai:EasyRefreshLayout:1.3.1'
+    compile 'id.zelory:compressor:1.0.4'
+    compile 'com.google.zxing:android-core:3.3.0'
+    compile 'com.google.zxing:core:3.3.0'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.makeramen:roundedimageview:2.2.1'
+    //必选
+    compile 'com.alibaba.mobileim:IMCore:2.0.2.1@aar'
+    //可选，如果使用SDK的UI必须添加该依赖，如果不使用SDK的UI，完全自己开发UI则无需添加该依赖
+    compile 'com.alibaba.mobileim:IMKit:2.0.2.1@aar'
+
+    compile 'cn.jiguang.sdk:jpush:3.0.9'  // 此处以JPush 3.0.9 版本为例。
+    compile 'cn.jiguang.sdk:jcore:1.1.7'  // 此处以JCore 1.1.7 版本为例。
+    compile 'com.android.support:multidex:1.0.1'
+
+    compile 'com.shuyu:GSYVideoPlayer:2.1.3'
+
+    compile files('libs/umeng-analytics-7.4.0.jar')
+    compile files('libs/umeng-common-1.4.0.jar')
+    compile files('libs/umerror_android_1.0.0.jar')
+}

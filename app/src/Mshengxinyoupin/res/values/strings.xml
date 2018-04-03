@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="isHelpInMain">true</bool>
+    <string name="my_team_title">我的粉丝</string>
+    <!--我的收益中底部的贡献收入-->
+    <string name="my_income_gongxian_value">粉丝贡献收入</string>
+    <!--我的收益中底部的贡献量-->
+    <string name="my_income_gongxian_count">粉丝贡献量</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?><!--主页页面-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/ll_contest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="42dp" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_bottom_background"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout style="@style/main_bottom_button">
+
+            <View
+                style="@style/main_bottom_button_icon"
+                android:background="@drawable/main_bottom_shouye" />
+
+            <TextView
+                style="@style/main_bottom_button_text"
+                android:text="首页" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/main_bottom_button">
+
+            <View
+                style="@style/main_bottom_button_icon"
+                android:background="@drawable/main_bottom_baokuan" />
+
+            <TextView
+                style="@style/main_bottom_button_text"
+                android:text="爆款疯抢" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/main_bottom_button"
+            android:paddingTop="3dp">
+
+            <View
+                style="@style/main_bottom_button_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@mipmap/main_bottom_zhibo" />
+
+            <TextView
+                style="@style/main_bottom_button_text"
+                android:text="直播间" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/main_bottom_button">
+
+            <View
+                style="@style/main_bottom_button_icon"
+                android:background="@drawable/main_bottom_xiaobianshuo" />
+
+            <TextView
+                style="@style/main_bottom_button_text"
+                android:text="小编说" />
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/main_bottom_button">
+
+            <View
+                style="@style/main_bottom_button_icon"
+                android:layout_width="21dp"
+                android:layout_height="23dp"
+                android:background="@drawable/main_bottom_wode" />
+
+            <TextView
+                style="@style/main_bottom_button_text"
+                android:text="会员中心" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

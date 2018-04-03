@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?><!--主页页面-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/ll_contest"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/rgb_EEEEEE"/>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/main_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/main_btn_home"
+            android:gravity="center"
+            android:paddingTop="7dp"
+            android:selectAllOnFocus="true"
+            android:text="@string/home"
+            android:textColor="@drawable/main_button_color"
+            android:textSize="10dp" />
+
+
+
+        <TextView
+            android:id="@+id/main_live"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/main_btn_soufanli"
+            android:gravity="center"
+            android:paddingTop="7dp"
+            android:text="@string/soufanli"
+            android:textColor="@drawable/main_button_color"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/main_thesun"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/main_btn_live"
+            android:gravity="center"
+            android:paddingTop="7dp"
+            android:text="@string/live"
+            android:textColor="@drawable/main_button_color"
+            android:textSize="10dp" />
+        <TextView
+            android:id="@+id/main_tipoff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="7dp"
+            android:textColor="@drawable/main_button_color"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/main_own"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/main_btn_own"
+            android:gravity="center"
+            android:paddingTop="7dp"
+            android:text="@string/own"
+            android:textColor="@drawable/main_button_color"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+</LinearLayout>

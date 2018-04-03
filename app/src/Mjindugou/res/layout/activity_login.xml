@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_main">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:src="@mipmap/icon_chacha" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="66dp"
+            android:src="@mipmap/dengru_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:text="喂！还不快来玩一下！"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/edit_background"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/login_edits_background"
+            android:minHeight="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/login_phone_et"
+                style="@style/login_edit"
+                android:layout_width="0dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:hint="请输入手机号码"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/rgb_eee"
+                app:layout_constraintEnd_toEndOf="@+id/login_phone_et"
+                app:layout_constraintStart_toStartOf="@+id/login_phone_et"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_et" />
+
+            <RelativeLayout
+                android:id="@+id/login_verification"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                app:layout_constraintEnd_toEndOf="@+id/login_phone_et"
+                app:layout_constraintStart_toStartOf="@+id/login_phone_et"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_et">
+
+                <EditText
+                    android:id="@+id/login_verification_et"
+                    style="@style/login_edit"
+                    android:layout_width="match_parent"
+                    android:gravity="bottom"
+                    android:hint="请输入验证码"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    android:id="@+id/login_verification_send"
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/login_get_veriffication"
+                    android:gravity="center"
+                    android:text="获取验证码"
+                    android:textColor="@color/login_get_veriffication"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/rgb_eee" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/login_password_et"
+                style="@style/login_edit"
+                android:layout_width="0dp"
+                android:background="@null"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="@+id/login_phone_et"
+                app:layout_constraintStart_toStartOf="@+id/login_phone_et"
+                app:layout_constraintTop_toBottomOf="@+id/login_verification" />
+
+            <ImageView
+                android:id="@+id/login_password_yanjing"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:padding="10dp"
+                android:src="@drawable/login_yanjing"
+                app:layout_constraintBottom_toBottomOf="@+id/login_password_et"
+                app:layout_constraintRight_toRightOf="@+id/login_password_et" />
+
+            <View
+                android:id="@+id/login_password_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/rgb_eee"
+                app:layout_constraintEnd_toEndOf="@+id/login_password_et"
+                app:layout_constraintStart_toStartOf="@+id/login_password_et"
+                app:layout_constraintTop_toBottomOf="@+id/login_password_et" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_login_ewai"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/edit_background"
+            app:layout_constraintStart_toStartOf="@+id/edit_background"
+            app:layout_constraintTop_toBottomOf="@+id/edit_background">
+
+            <TextView
+                android:id="@+id/xieyi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_agreement"
+                android:textColor="#FEAD07"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/goto_forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="忘记密码？"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/botton_background"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="380dp"
+            android:background="@drawable/login_button_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/login_login"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/login_button_selector"
+            android:text="登入"
+            android:textColor="@color/login_button_text"
+            app:layout_constraintBottom_toBottomOf="@+id/botton_background"
+            app:layout_constraintEnd_toStartOf="@+id/login_register"
+            app:layout_constraintStart_toStartOf="@+id/botton_background"
+            app:layout_constraintTop_toTopOf="@+id/botton_background" />
+
+        <Button
+            android:id="@+id/login_register"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/login_button_selector"
+            android:text="注册"
+            android:textColor="@color/login_button_text"
+            app:layout_constraintEnd_toEndOf="@+id/botton_background"
+            app:layout_constraintStart_toEndOf="@+id/login_login"
+            app:layout_constraintBottom_toBottomOf="@+id/botton_background"
+            app:layout_constraintTop_toTopOf="@+id/botton_background" />
+
+        <Button
+            android:id="@+id/login_forget"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/login_button_selector"
+            android:text="忘记密码"
+            android:textColor="@color/login_button_text"
+            app:layout_constraintEnd_toEndOf="@+id/botton_background"
+            app:layout_constraintStart_toStartOf="@+id/botton_background"
+            app:layout_constraintTop_toTopOf="@+id/botton_background" />
+
+        <TextView
+            android:id="@+id/login_taobao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:drawableTop="@mipmap/login_taobao"
+            android:gravity="center"
+            android:text="淘宝账号一键登录"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_login" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

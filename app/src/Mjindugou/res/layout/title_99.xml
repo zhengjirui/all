@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><!--9.9和19.9包邮的标题，修改自R.layout.common_title-->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:clickable="true">
+
+    <!-- android:onClick="finish"-->
+    <ImageView
+        android:id="@+id/iv_back"
+        style="@style/Button_Style_0"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:src="@drawable/main_fanhui"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/baoyou_9"
+        android:layout_width="86dp"
+        android:layout_height="30dp"
+        android:background="@drawable/switch_by_maincolor"
+        android:gravity="center"
+        android:text="9.9"
+        android:textColor="@color/baoyou_99"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/baoyou_19"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/baoyou_19"
+        android:layout_width="86dp"
+        android:layout_height="30dp"
+        android:background="@drawable/switch_by_maincolor"
+        android:gravity="center"
+        android:text="19.9"
+        android:textColor="@color/baoyou_99"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/baoyou_9"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
+

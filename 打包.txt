@@ -1,0 +1,13 @@
+gradle 
+assembleshengxinyoupinMshengxinyoupinRelease //省心优品
+assembleduoshoudarenMshengxinyoupinRelease //剁手达人
+assembleyoucaishuMshengxinyoupinRelease //优菜书
+assembleyungouyoupinMshengxinyoupinRelease //云购优品
+assemblebaobeijuanjuanMshengxinyoupinRelease //宝贝卷卷
+assemblequanbaobeiMshengxinyoupinRelease //券宝贝
+assemblequanshenghuoMshengxinyoupinRelease //券生活
+assemblebudingyouxuanMshengxinyoupinRelease //布丁优选
+assemblesaopinjieMshengxinyoupinRelease //扫品街
+
+assemblejindugouMjindugouRelease //金嘟购
+assemblezhuanqiankuaibaoMjindugouRelease //赚钱快报

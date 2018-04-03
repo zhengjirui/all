@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:gravity="center"
+        android:text="小编说"
+        android:textColor="@color/main"
+        android:textSize="@dimen/title_text_size" />
+
+    <include
+        layout="@layout/activity_error"
+        android:visibility="gone" />
+
+    <com.lechuang.shengxinyoupin.mine.view.XRecyclerView
+        android:id="@+id/gv_product"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title" />
+
+    <ImageView
+        android:id="@+id/iv_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_top"
+        android:visibility="invisible" />
+
+    <com.lechuang.shengxinyoupin.view.defineView.OriginalImageView
+        android:id="@+id/original_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>
